@@ -28,20 +28,9 @@ def get_image_info(image):
     print(image.dtype)
 
 
-def create_image():
-    '''
-    img = np.zeros([400, 400, 3])
-    img[:, :, 0] = np.ones([400, 400]) * 255
-    cv.imshow('create_image', img)
-    '''
-    img = np.zeros([400, 400, 1])
-    img = img * 0
-    cv.imshow('255', img)
-
-
 def video_demo():
     capture = cv.VideoCapture(0)
-    while (True):
+    while True:
         ret, frame = capture.read()
         frame = cv.flip(frame, 1)
         cv.imshow('video', frame)
@@ -50,11 +39,9 @@ def video_demo():
             break
 
 
-src = cv.imread('F:\\qing.jpg')
+src = cv.imread('./qing.jpg')
 cv.namedWindow('input imag', cv.WINDOW_AUTOSIZE)
 cv.imshow('input imag', src)
-
-# create_image()
 
 # gray = cv.cvtColor(src, cv.COLOR_BGR2GRAY)
 # cv.imwrite('F:\\gray.jpg', gray)
@@ -65,7 +52,7 @@ cv.imshow('input imag', src)
 改变图片样式
 '''
 t1 = cv.getTickCount()
-access_pixels(src,1)
+access_pixels(src, 1)
 t2 = cv.getTickCount()
 time = (t2 - t1) / cv.getTickFrequency()
 print('time : %s ms' % (time * 1000))
